@@ -6,7 +6,7 @@ import haxe.ui.util.Variant;
 import java.lang.CharSequence;
 import java.lang.StringBuilder;
 
-class WidgetText extends DataBehaviour {
+class TextViewText extends DataBehaviour {
     public override function get():Variant {
         if (Std.is(_component.view, TextView)) {
             var textView:TextView = cast(_component.view, TextView);

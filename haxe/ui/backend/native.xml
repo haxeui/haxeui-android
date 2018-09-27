@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <native>
     <component id="haxe.ui.components.Button" class="android.widget.Button">
-        <behaviour id="text" class="haxe.ui.backend.android.behaviours.WidgetText" />
+        <behaviour id="text" class="haxe.ui.backend.android.behaviours.TextViewText" />
         <behaviour id="icon" class="haxe.ui.backend.android.behaviours.WidgetIcon" />
-        <size class="haxe.ui.backend.android.size.ViewSize" />
+        <size class="haxe.ui.backend.android.size.MeasuredSize" />
     </component>
     <component id="haxe.ui.components.CheckBox" class="android.widget.CheckBox">
-        <behaviour id="text" class="haxe.ui.backend.android.behaviours.WidgetText" />
-        <size class="haxe.ui.backend.android.size.ViewSize" />
+        <behaviour id="text" class="haxe.ui.backend.android.behaviours.TextViewText" />
+        <size class="haxe.ui.backend.android.size.MeasuredSize" />
     </component>
     <component id="haxe.ui.components.OptionBox" class="android.widget.RadioButton">
-        <behaviour id="text" class="haxe.ui.backend.android.behaviours.WidgetText" />
-        <size class="haxe.ui.backend.android.size.ViewSize" />
+        <behaviour id="text" class="haxe.ui.backend.android.behaviours.TextViewText" />
+        <size class="haxe.ui.backend.android.size.MeasuredSize" />
     </component>
     <component id="haxe.ui.components.HProgress" class="android.widget.ProgressBar">
         <behaviour id="pos" class="haxe.ui.backend.android.behaviours.WidgetProgress" />
-        <size class="haxe.ui.backend.android.size.ViewSize" />
+        <size class="haxe.ui.backend.android.size.MeasuredSize" />
     </component>
     <component id="haxe.ui.components.TextField" class="android.widget.EditText">
-        <behaviour id="text" class="haxe.ui.backend.android.behaviours.WidgetText" />
-        <behaviour id="placeholder" class="haxe.ui.backend.android.behaviours.WidgetHint" />
-        <size class="haxe.ui.backend.android.size.ViewSize" />
+        <behaviour id="text" class="haxe.ui.backend.android.behaviours.TextViewText" />
+        <behaviour id="placeholder" class="haxe.ui.backend.android.behaviours.TextViewHint" />
+        <size class="haxe.ui.backend.android.size.MeasuredSize" />
     </component>
     <component id="haxe.ui.containers.TabView2" class="haxe.ui.backend.android.wrappers.TabPane">
-        <size class="haxe.ui.backend.android.size.ViewSize" />
+        <size class="haxe.ui.backend.android.size.MeasuredSize" />
     </component>
     <component id="haxe.ui.containers.ScrollView2" class="haxe.ui.backend.android.wrappers.ScrollPane">
-        <size class="haxe.ui.backend.android.size.ViewSize" />
+        <size class="haxe.ui.backend.android.size.MeasuredSize" />
     </component>
     <component id="haxe.ui.components.HSlider" class="android.widget.SeekBar">
         <behaviour id="pos" class="haxe.ui.backend.android.behaviours.WidgetProgress" />
-        <size class="haxe.ui.backend.android.size.ViewSize" />
+        <size class="haxe.ui.backend.android.size.MeasuredSize" />
     </component>
     <component id="haxe.ui.components.Label" class="android.widget.TextView">
-        <behaviour id="text" class="haxe.ui.backend.android.behaviours.WidgetText" />
-        <size class="haxe.ui.backend.android.size.ViewSize" />
+        <behaviour id="text" class="haxe.ui.backend.android.behaviours.TextViewText" />
+        <size class="haxe.ui.backend.android.size.MeasuredSize" />
+    </component>
+    <component id="haxe.ui.components.Image" class="android.widget.ImageView">
+        <behaviour id="resource" class="haxe.ui.backend.android.behaviours.ImageViewSrc" />
+        <size class="haxe.ui.backend.android.size.MeasuredSize" />
     </component>
 </native>
