@@ -4,21 +4,10 @@
     background-color: none;
     border-color: none;
     border: none;
-}
-
-.button {
-    background-color: none;
-    color: none;
-    background: none;
-    border-color: none;
+    font-size: null;
 }
 
 .slider, .progress {
     width: auto;
     height: auto;
-}
-
-.textfield {
-    background-color: none;
-    color: none;
 }

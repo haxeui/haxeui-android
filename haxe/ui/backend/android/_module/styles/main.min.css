@@ -1,4 +1,3 @@
-*{native:true;color:none;background-color:none;border-color:none;border:none;}
-.button{background-color:none;color:none;background:none;border-color:none;}
+*{native:true;color:none;background-color:none;border-color:none;border:none;font-size:null;}
 .slider,.progress{width:auto;height:auto;}
-.textfield{background-color:none;color:none;}
+
