@@ -99,13 +99,10 @@ class ComponentBase implements ViewTreeObserver_OnGlobalLayoutListener {
             return;
         }
         
-        trace(width + "x" + height);
-        
         var params:RelativeLayout_LayoutParams = cast(view.getLayoutParams(), RelativeLayout_LayoutParams);
         if (params == null) {
             params = new RelativeLayout_LayoutParams(ViewGroup_LayoutParams.WRAP_CONTENT, ViewGroup_LayoutParams.WRAP_CONTENT);
         }
-
         
         var c:Component = cast(this, Component);
         if (c.autoWidth == false) {
