@@ -19,9 +19,10 @@
     </component>
     <component id="haxe.ui.components.TextField" class="android.widget.EditText">
         <behaviour id="text" class="haxe.ui.backend.android.behaviours.WidgetText" />
+        <behaviour id="placeholder" class="haxe.ui.backend.android.behaviours.WidgetHint" />
         <size class="haxe.ui.backend.android.size.ViewSize" />
     </component>
-    <component id="haxe.ui.containers.TabView" class="haxe.ui.backend.android.wrappers.TabPane">
+    <component id="haxe.ui.containers.TabView2" class="haxe.ui.backend.android.wrappers.TabPane">
         <size class="haxe.ui.backend.android.size.ViewSize" />
     </component>
     <component id="haxe.ui.containers.ScrollView2" class="haxe.ui.backend.android.wrappers.ScrollPane">
