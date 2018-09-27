@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <module id="haxeui-android">
     <resources>
-        <resource path="/haxe/ui/backend/android/_module/styles" prefix="styles" />
+        <resource path="/haxe/ui/backend/android/_module/styles" prefix="haxeui-android/styles" />
     </resources>
     <themes>
         <global>
-            <style resource="styles/main.css" />
+            <style resource="haxeui-android/styles/main.css" />
         </global>
     </themes>
 </module>
