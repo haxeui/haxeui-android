@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.ViewGroup.ViewGroup_LayoutParams;
+import android.view.Window;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver.ViewTreeObserver_OnGlobalLayoutListener;
 import android.widget.RelativeLayout;
@@ -28,12 +29,16 @@ class MainActivity extends Activity implements ViewTreeObserver_OnGlobalLayoutLi
         } else {
             setTheme(android.R.R_style.Theme_DeviceDefault);
         }
-        
+
         super.onCreate(savedInstanceState);
         
-        var title = Toolkit.backendProperties.getProp("haxe.ui.android.title");
-        if (title != null) {
-            setTitle(title);
+        if (Toolkit.backendProperties.getPropBool("haxe.ui.android.title.hide") == false) {
+            var title = Toolkit.backendProperties.getProp("haxe.ui.android.title");
+            if (title != null) {
+                setTitle(title);
+            }
+        } else {
+            requestWindowFeature(Window.FEATURE_NO_TITLE);
         }
         
         if (contentView == null) {
