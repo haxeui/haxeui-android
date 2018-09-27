@@ -8,6 +8,7 @@ import haxe.ui.backend.android.MainActivity;
 import android.widget.Button;
 import haxe.ui.backend.android.handlers.TouchHandler;
 import haxe.ui.backend.android.wrappers.ScrollPane;
+import haxe.ui.backend.android.wrappers.TabPane;
 import haxe.ui.containers.ScrollView2;
 import haxe.ui.core.Component;
 import haxe.ui.core.ImageDisplay;
@@ -84,14 +85,17 @@ class ComponentBase implements ViewTreeObserver_OnGlobalLayoutListener {
             return;
         }
 
-        var params:RelativeLayout_LayoutParams = cast(view.getLayoutParams(), RelativeLayout_LayoutParams);
-        if (params == null) {
-            params = new RelativeLayout_LayoutParams(ViewGroup_LayoutParams.WRAP_CONTENT, ViewGroup_LayoutParams.WRAP_CONTENT);
+        if (Std.is(view.getLayoutParams(), RelativeLayout_LayoutParams)) {
+            var params:RelativeLayout_LayoutParams = cast(view.getLayoutParams(), RelativeLayout_LayoutParams);
+            if (params == null) {
+                params = new RelativeLayout_LayoutParams(ViewGroup_LayoutParams.WRAP_CONTENT, ViewGroup_LayoutParams.WRAP_CONTENT);
+            }
+            
+            params.leftMargin = Std.int(left);
+            params.topMargin = Std.int(top);
+            view.setLayoutParams(params);
         }
         
-        params.leftMargin = Std.int(left);
-        params.topMargin = Std.int(top);
-        view.setLayoutParams(params);
     }
 
     private function handleSize(width:Null<Float>, height:Null<Float>, style:Style) {
@@ -99,22 +103,21 @@ class ComponentBase implements ViewTreeObserver_OnGlobalLayoutListener {
             return;
         }
         
-        var params:RelativeLayout_LayoutParams = cast(view.getLayoutParams(), RelativeLayout_LayoutParams);
-        if (params == null) {
-            params = new RelativeLayout_LayoutParams(ViewGroup_LayoutParams.WRAP_CONTENT, ViewGroup_LayoutParams.WRAP_CONTENT);
-        }
-        
-        var c:Component = cast(this, Component);
-        if (c.autoWidth == false) {
-            params.width = Std.int(width);
-        }
-        if (c.autoHeight == false) {
-            params.height = Std.int(height);
-        }
+        if (Std.is(view.getLayoutParams(), RelativeLayout_LayoutParams)) {
+            var params:RelativeLayout_LayoutParams = cast(view.getLayoutParams(), RelativeLayout_LayoutParams);
+            if (params == null) {
+                params = new RelativeLayout_LayoutParams(ViewGroup_LayoutParams.WRAP_CONTENT, ViewGroup_LayoutParams.WRAP_CONTENT);
+            }
+            
+            var c:Component = cast(this, Component);
+            if (c.autoWidth == false) {
+                params.width = Std.int(width);
+            }
+            if (c.autoHeight == false) {
+                params.height = Std.int(height);
+            }
 
-        view.setLayoutParams(params);
-        if (c.parentComponent != null) {
-            //c.parentComponent.invalidateComponentLayout();
+            view.setLayoutParams(params);
         }
     }
 
@@ -207,8 +210,12 @@ class ComponentBase implements ViewTreeObserver_OnGlobalLayoutListener {
     }
 
     private function handleAddComponent(child:Component):Component {
-        var params = new RelativeLayout_LayoutParams(ViewGroup_LayoutParams.WRAP_CONTENT, ViewGroup_LayoutParams.WRAP_CONTENT);
-        cast(view, android.view.ViewGroup).addView(child.view, params);
+        if (Std.is(view, TabPane)) {
+            cast(view, TabPane).addTab(child.text, child.view);
+        } else {
+            var params = new RelativeLayout_LayoutParams(ViewGroup_LayoutParams.WRAP_CONTENT, ViewGroup_LayoutParams.WRAP_CONTENT);
+            cast(view, android.view.ViewGroup).addView(child.view, params);
+        }
         return child;
     }
 
@@ -237,6 +244,10 @@ class ComponentBase implements ViewTreeObserver_OnGlobalLayoutListener {
         if (style.color != null && Std.is(view, TextView)) {
             var c:haxe.ui.util.Color = style.color;
             cast(view, TextView).setTextColor(Color.rgb(c.r, c.g, c.b));
+        }
+        
+        if (style.fontSize != null && Std.is(view, TextView)) {
+            cast(view, TextView).setTextSize(style.fontSize);
         }
         
         if (style.backgroundColor != null && style.backgroundColorEnd != null) {

@@ -12,6 +12,7 @@ import android.widget.FrameLayout.FrameLayout_LayoutParams;
 import android.widget.LinearLayout.LinearLayout_LayoutParams;
 import android.widget.TabWidget;
 import android.view.View;
+import android.graphics.Color;
 
 class TabPane extends RelativeLayout {
     private var _tabHost:TabHost;
@@ -27,7 +28,7 @@ class TabPane extends RelativeLayout {
         
         _tabLayout = new LinearLayout(context);
         _tabLayout.setOrientation(LinearLayout.VERTICAL);
-        _tabHost.addView(_tabLayout, new RelativeLayout_LayoutParams(ViewGroup_LayoutParams.MATCH_PARENT, ViewGroup_LayoutParams.MATCH_PARENT));
+        _tabHost.addView(_tabLayout, new LinearLayout_LayoutParams(ViewGroup_LayoutParams.MATCH_PARENT, ViewGroup_LayoutParams.MATCH_PARENT));
         
         _tabWidget = new TabWidget(context);
         _tabWidget.setId(android.R.R_id.tabs);
@@ -46,7 +47,7 @@ class TabPane extends RelativeLayout {
         if (view.getId() == -1) { // could be done better
             view.setId(Std.random(0xFFFFFF));
         }
-        _tabContent.addView(view, new FrameLayout_LayoutParams(ViewGroup_LayoutParams.WRAP_CONTENT, ViewGroup_LayoutParams.WRAP_CONTENT));
+        _tabContent.addView(view, new FrameLayout_LayoutParams(ViewGroup_LayoutParams.MATCH_PARENT, ViewGroup_LayoutParams.MATCH_PARENT));
         tabSpec.setContent(view.getId());
         _tabHost.addTab(tabSpec); 
     }
