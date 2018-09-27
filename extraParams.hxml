@@ -1,0 +1,6 @@
+--macro include("haxe.ui.backend.android")
+--macro include("haxe.ui.backend.android.behaviours")
+--macro include("haxe.ui.backend.android.size")
+--macro include("haxe.ui.backend.android.wrappers")
+
+--macro haxe.ui.backend.android.BuilderHelper.build()
