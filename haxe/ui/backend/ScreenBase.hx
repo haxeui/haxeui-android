@@ -48,6 +48,23 @@ class ScreenBase implements ViewTreeObserver_OnGlobalLayoutListener {
             
         }
 
+        var rootWidth:String = Toolkit.backendProperties.getProp("haxe.ui.android.root.width");
+        if (rootWidth != null) {
+            if (StringTools.endsWith(rootWidth, "%")) {
+                component.percentWidth = Std.parseFloat(StringTools.replace(rootWidth, "%", ""));
+            } else {
+                component.width = Std.parseFloat(rootWidth);
+            }
+        }
+        
+        var rootHeight:String = Toolkit.backendProperties.getProp("haxe.ui.android.root.height");
+        if (rootHeight != null) {
+            if (StringTools.endsWith(rootHeight, "%")) {
+                component.percentHeight = Std.parseFloat(StringTools.replace(rootHeight, "%", ""));
+            } else {
+                component.height = Std.parseFloat(rootHeight);
+            }
+        }
         MainActivity.contentView.addView(component.view);
     }
 
