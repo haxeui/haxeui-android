@@ -11,3 +11,7 @@
     width: auto;
     height: auto;
 }
+
+.textfield {
+    initial-width: 100%;
+}
