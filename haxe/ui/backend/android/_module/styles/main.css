@@ -7,7 +7,13 @@
     font-size: null;
 }
 
-.slider, .progress, .switch2 {
+.switch2 {
+    initial-width: 100%;
+    width: 100%;
+    height: auto;
+}
+
+.slider, .progress {
     width: auto;
     height: auto;
 }

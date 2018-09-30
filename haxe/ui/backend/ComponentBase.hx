@@ -9,6 +9,7 @@ import android.widget.Button;
 import haxe.ui.backend.android.handlers.TouchHandler;
 import haxe.ui.backend.android.wrappers.ScrollPane;
 import haxe.ui.backend.android.wrappers.TabPane;
+import haxe.ui.components.OptionBox;
 import haxe.ui.containers.ScrollView2;
 import haxe.ui.core.Component;
 import haxe.ui.core.ImageDisplay;
@@ -78,6 +79,12 @@ class ComponentBase implements ViewTreeObserver_OnGlobalLayoutListener {
         }
         
         //view.getViewTreeObserver().addOnGlobalLayoutListener(this);
+        
+        if (Std.is(this, OptionBox)) {
+            view.setOnClickListener(new ClickHandler(function(v:View) {
+                cast(this, OptionBox).selected = cast(view, android.widget.RadioButton).isChecked();
+            }));
+        }
     }
 
     private function handlePosition(left:Null<Float>, top:Null<Float>, style:Style) {

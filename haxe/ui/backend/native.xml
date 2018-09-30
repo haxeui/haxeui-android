@@ -12,6 +12,7 @@
     </component>
     <component id="haxe.ui.components.OptionBox" class="android.widget.RadioButton">
         <behaviour id="text" class="haxe.ui.backend.android.behaviours.TextViewText" />
+        <behaviour id="selected" class="haxe.ui.backend.android.behaviours.CompoundButtonChecked" />
         <size class="haxe.ui.backend.android.size.MeasuredSize" />
     </component>
     <component id="haxe.ui.components.HProgress" class="android.widget.ProgressBar">
