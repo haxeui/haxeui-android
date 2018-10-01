@@ -49,9 +49,13 @@
         <behaviour id="textOff" class="haxe.ui.backend.android.behaviours.SwitchTextOff" />
         <size class="haxe.ui.backend.android.size.ViewSize" />
     </component>
-    
     <component id="haxe.ui.components.HorizontalProgress" class="android.widget.ProgressBar">
         <behaviour id="pos" class="haxe.ui.backend.android.behaviours.ProgressBarValue" />
         <size class="haxe.ui.backend.android.size.MeasuredSize" />
+    </component>
+    <component id="haxe.ui.components.HorizontalSlider" class="android.widget.SeekBar">
+        <size class="haxe.ui.backend.android.size.MeasuredSize" />
+        <behaviour id="end" class="haxe.ui.backend.android.behaviours.ProgressBarValue" />
+        <behaviour id="pos" class="haxe.ui.backend.android.behaviours.ProgressBarValue" />
     </component>
 </native>
