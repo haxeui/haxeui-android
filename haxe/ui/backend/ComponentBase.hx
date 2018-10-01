@@ -57,6 +57,7 @@ class ComponentBase implements ViewTreeObserver_OnGlobalLayoutListener {
 			//      Object o = args.__get(i);
 			//      objs[i]= o;
 			//      cls[i] = o.getClass();  <---------- here
+            // https://github.com/HaxeFoundation/hxjava/issues/24
             var p = new ProgressBar(MainActivity.context, null, android.R.R_attr.progressBarStyleHorizontal);
             view = p;
         } else {
