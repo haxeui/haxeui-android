@@ -27,6 +27,7 @@ import android.graphics.drawable.GradientDrawable;
 import java.Lib;
 import java.NativeArray;
 import android.widget.TextView;
+import android.widget.ProgressBar;
 import android.view.MotionEvent;
 import android.graphics.drawable.InsetDrawable;
 import android.graphics.Rect;
@@ -50,17 +51,17 @@ class ComponentBase implements ViewTreeObserver_OnGlobalLayoutListener {
         var className:String = Type.getClassName(Type.getClass(this));
         var nativeComponentClass:String = Toolkit.nativeConfig.query('component[id=${className}].@class', 'android.widget.RelativeLayout', this);
         var params:Array<Dynamic> = [MainActivity.context];
-        /*
-        if (Std.is(this, haxe.ui.components.HProgress)) {
-            // annoying case for progress bars
+        if (nativeComponentClass == "android.widget.ProgressBar") {
+            // TODO: hxJava issue: if you try to use Type.createInstance with a null as a construtor param (eg: [1, null, 2]) then app will crash
+            // this is because internally (in haxe.root.Type.java) haxe will try to get the class of that null and NPE:
+			//      Object o = args.__get(i);
+			//      objs[i]= o;
+			//      cls[i] = o.getClass();  <---------- here
             var p = new ProgressBar(MainActivity.context, null, android.R.R_attr.progressBarStyleHorizontal);
-            p.setProgressDrawable(MainActivity.context.getResources().getDrawable(android.R.R_drawable.progress_horizontal));
             view = p;
         } else {
             view = Type.createInstance(Type.resolveClass(nativeComponentClass), params);
         }
-        */
-        view = Type.createInstance(Type.resolveClass(nativeComponentClass), params);
         
         // TODO: just temp stuff to play
         /*

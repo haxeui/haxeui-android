@@ -21,3 +21,8 @@
 .textfield {
     initial-width: 100%;
 }
+
+.horizontal-progress {
+    width: 100%;
+    height: auto;
+}
