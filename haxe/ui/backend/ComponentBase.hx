@@ -6,6 +6,7 @@ import android.view.ViewGroup.ViewGroup_LayoutParams;
 import android.widget.RelativeLayout.RelativeLayout_LayoutParams;
 import haxe.ui.backend.android.MainActivity;
 import android.widget.Button;
+import haxe.ui.backend.android.Utils;
 import haxe.ui.backend.android.handlers.TouchHandler;
 import haxe.ui.backend.android.wrappers.ScrollPane;
 import haxe.ui.backend.android.wrappers.TabPane;
@@ -259,11 +260,11 @@ class ComponentBase implements ViewTreeObserver_OnGlobalLayoutListener {
         
         if (style.backgroundColor != null && style.backgroundColorEnd != null) {
             var gd:GradientDrawable = new GradientDrawable();
-            gd.setCornerRadius(Std.int(convertDpToPixels(2)));
+            gd.setCornerRadius(Utils.convertDpToPixels(2));
             
             if (style.borderColor != null) {
                 var borderColor:haxe.ui.util.Color = style.borderColor;
-                gd.setStroke(Std.int(convertDpToPixels(style.borderLeftSize)), Color.rgb(borderColor.r, borderColor.g, borderColor.b));
+                gd.setStroke(Utils.convertDpToPixels(style.borderLeftSize), Color.rgb(borderColor.r, borderColor.g, borderColor.b));
             }
 
             var backgroundColor:haxe.ui.util.Color = style.backgroundColor;
@@ -283,27 +284,16 @@ class ComponentBase implements ViewTreeObserver_OnGlobalLayoutListener {
             paddingBottom = 55;
             
             var inset:InsetDrawable = new InsetDrawable(gd,
-                Std.int(convertPixelsToDp(paddingLeft)),
-                Std.int(convertPixelsToDp(paddingTop)),
-                Std.int(convertPixelsToDp(paddingRight)),
-                Std.int(convertPixelsToDp(paddingBottom)));
+                Utils.convertPixelsToDp(paddingLeft),
+                Utils.convertPixelsToDp(paddingTop),
+                Utils.convertPixelsToDp(paddingRight),
+                Utils.convertPixelsToDp(paddingBottom));
             
             view.setBackground(inset);
             view.setPadding(0, 0, 0, 0);
         }
     }
 
-    private function convertDpToPixels(dp:Float):Float {
-        var resources = MainActivity.context.getResources();
-        var metrics = resources.getDisplayMetrics();
-        var px = dp * metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT;
-        return px;
-    }
-    
-    private function convertPixelsToDp(px:Float):Float {
-        return px / (MainActivity.context.getResources().getDisplayMetrics().densityDpi / DisplayMetrics.DENSITY_DEFAULT);
-    }
-    
     //***********************************************************************************************************
     // Events
     //***********************************************************************************************************

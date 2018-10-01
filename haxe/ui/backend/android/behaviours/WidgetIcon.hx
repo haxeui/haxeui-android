@@ -1,28 +1,18 @@
 package haxe.ui.backend.android.behaviours;
 
-import haxe.ui.core.Behaviour;
-import haxe.ui.util.Variant;
-import android.widget.Button;
-import java.io.ByteArrayInputStream;
-import android.graphics.drawable.Drawable;
+import android.widget.TextView;
+import haxe.ui.core.DataBehaviour;
 
-class WidgetIcon extends Behaviour {
-    public override function set(value:Variant) {
-        if (value == null || value.isNull == true) {
-            return;
+class WidgetIcon extends DataBehaviour {
+    public override function validateData() {
+        if (Std.is(_component.view, TextView)) {
+            ToolkitAssets.instance.getImage(_value, function(image) {
+                if (image == null || image.data == null) {
+                    return;
+                }
+                var textView:TextView = cast(_component.view, TextView);
+                textView.setCompoundDrawablesWithIntrinsicBounds(image.data, null, null, null);
+            });
         }
-        
-        if (Std.is(_component.view, Button)) {
-            var bytes = Resource.getBytes(value);
-            var is:ByteArrayInputStream = new ByteArrayInputStream(bytes.getData());
-            var drawable:Drawable = Drawable.createFromStream(is, value);
-            is.close();
-            var button:Button = cast(_component.view, Button);
-            button.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null);
-        }
-    }
-
-    public override function get():Variant {
-        return null;
     }
 }

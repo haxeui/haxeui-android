@@ -6,7 +6,7 @@ import android.graphics.Canvas;
 import android.view.MotionEvent;
 
 // http://hoodaandroid.blogspot.com/2012/10/vertical-seek-bar-or-slider-in-android.html
-
+// https://github.com/jeisfeld/Augendiagnose/blob/master/AugendiagnoseIdea/augendiagnoseLib/src/main/java/de/jeisfeld/augendiagnoselib/components/VerticalSeekBar.java
 class VerticalSeekBar extends SeekBar {
     public function new(context:Context) {
         super(context);

@@ -8,4 +8,7 @@
             <style resource="haxeui-android/styles/main.css" />
         </global>
     </themes>
+    <plugins>
+        <plugin type="asset" class="haxe.ui.assets.AssetNamePlugin" prefix="assets/" />
+    </plugins>
 </module>
