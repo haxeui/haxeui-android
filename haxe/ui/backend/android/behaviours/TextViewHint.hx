@@ -1,6 +1,6 @@
 package haxe.ui.backend.android.behaviours;
 
-import haxe.ui.core.DataBehaviour;
+import haxe.ui.behaviours.DataBehaviour;
 import haxe.ui.util.Variant;
 import android.widget.TextView;
 

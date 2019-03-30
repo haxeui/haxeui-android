@@ -9,16 +9,12 @@ import haxe.ui.assets.ImageInfo;
 import haxe.ui.backend.android.Utils;
 import java.io.ByteArrayInputStream;
 
-class AssetsBase {
-    public function new() {
-
-    }
-
-    private function getTextDelegate(resourceId:String):String {
+class AssetsImpl extends AssetsBase {
+    private override function getTextDelegate(resourceId:String):String {
         return Resource.getString("assets/" + resourceId);
     }
 
-    private function getImageInternal(resourceId:String, callback:ImageInfo->Void) {
+    private override function getImageInternal(resourceId:String, callback:ImageInfo->Void) {
         var bytes = Resource.getBytes(resourceId);
         if (bytes == null) {
             callback(null);
@@ -37,23 +33,5 @@ class AssetsBase {
             data: drawable
         }
         callback(info);
-    }
-
-    private function getImageFromHaxeResource(resourceId:String, callback:String->ImageInfo->Void) {
-        trace(">>>>> getImageFromHaxeResource: " + resourceId);
-        callback(resourceId, null);
-    }
-
-    public function imageFromBytes(bytes:Bytes, callback:ImageInfo->Void) {
-        trace(">>>>> imageFromBytes: ");
-        callback(null);
-    }
-    
-    private function getFontInternal(resourceId:String, callback:FontInfo->Void) {
-        callback(null);
-    }
-
-    private function getFontFromHaxeResource(resourceId:String, callback:String->FontInfo->Void) {
-        callback(resourceId, null);
     }
 }

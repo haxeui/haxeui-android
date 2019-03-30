@@ -1,7 +1,7 @@
 package haxe.ui.backend.android.behaviours;
 
 import android.widget.TextView;
-import haxe.ui.core.DataBehaviour;
+import haxe.ui.behaviours.DataBehaviour;
 
 class WidgetIcon extends DataBehaviour {
     public override function validateData() {

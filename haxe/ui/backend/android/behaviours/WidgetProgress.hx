@@ -1,6 +1,6 @@
 package haxe.ui.backend.android.behaviours;
 
-import haxe.ui.core.Behaviour;
+import haxe.ui.behaviours.Behaviour;
 import haxe.ui.util.Variant;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;

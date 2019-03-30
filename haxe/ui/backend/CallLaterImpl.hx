@@ -2,7 +2,7 @@ package haxe.ui.backend;
 
 import android.os.Handler;
 
-class CallLaterBase implements java.lang.Runnable {
+class CallLaterImpl implements java.lang.Runnable {
     private var _fn:Void->Void;
     private var _handler:Handler;
     public function new(fn:Void->Void) {
