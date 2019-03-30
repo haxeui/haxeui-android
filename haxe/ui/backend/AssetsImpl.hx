@@ -3,8 +3,6 @@ package haxe.ui.backend;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
-import haxe.io.Bytes;
-import haxe.ui.assets.FontInfo;
 import haxe.ui.assets.ImageInfo;
 import haxe.ui.backend.android.Utils;
 import java.io.ByteArrayInputStream;
