@@ -24,10 +24,10 @@
         <behaviour id="placeholder" class="haxe.ui.backend.android.behaviours.TextViewHint" />
         <size class="haxe.ui.backend.android.size.MeasuredSize" />
     </component>
-    <component id="haxe.ui.containers.TabView2" class="haxe.ui.backend.android.wrappers.TabPane">
+    <component id="haxe.ui.containers.TabView" class="haxe.ui.backend.android.wrappers.TabPane">
         <size class="haxe.ui.backend.android.size.MeasuredSize" />
     </component>
-    <component id="haxe.ui.containers.ScrollView2" class="haxe.ui.backend.android.wrappers.ScrollPane">
+    <component id="haxe.ui.containers.ScrollView" class="haxe.ui.backend.android.wrappers.ScrollPane">
         <size class="haxe.ui.backend.android.size.MeasuredSize" />
     </component>
     <component id="haxe.ui.components.HSlider" class="android.widget.SeekBar">
@@ -42,7 +42,7 @@
         <behaviour id="resource" class="haxe.ui.backend.android.behaviours.ImageViewSrc" />
         <size class="haxe.ui.backend.android.size.MeasuredSize" />
     </component>
-    <component id="haxe.ui.components.Switch2" class="android.widget.Switch">
+    <component id="haxe.ui.components.Switch" class="android.widget.Switch">
         <behaviour id="selected" class="haxe.ui.backend.android.behaviours.CompoundButtonChecked" />
         <behaviour id="text" class="haxe.ui.backend.android.behaviours.TextViewText" />
         <behaviour id="textOn" class="haxe.ui.backend.android.behaviours.SwitchTextOn" />

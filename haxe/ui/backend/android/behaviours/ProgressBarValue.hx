@@ -1,6 +1,6 @@
 package haxe.ui.backend.android.behaviours;
 
-import haxe.ui.core.DataBehaviour;
+import haxe.ui.behaviours.DataBehaviour;
 import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 

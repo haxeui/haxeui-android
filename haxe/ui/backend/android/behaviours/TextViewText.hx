@@ -1,7 +1,7 @@
 package haxe.ui.backend.android.behaviours;
 
 import android.widget.TextView;
-import haxe.ui.core.DataBehaviour;
+import haxe.ui.behaviours.DataBehaviour;
 import haxe.ui.util.Variant;
 import java.lang.CharSequence;
 import java.lang.StringBuilder;

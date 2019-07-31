@@ -1,7 +1,7 @@
 package haxe.ui.backend.android.behaviours;
 
 import android.widget.ImageView;
-import haxe.ui.core.DataBehaviour;
+import haxe.ui.behaviours.DataBehaviour;
 
 class ImageViewSrc extends DataBehaviour {
     public override function validateData() {
