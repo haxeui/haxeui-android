@@ -4,3 +4,5 @@
 --macro include("haxe.ui.backend.android.wrappers")
 
 --macro haxe.ui.backend.android.BuilderHelper.build()
+
+-D android

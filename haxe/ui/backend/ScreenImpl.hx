@@ -20,11 +20,10 @@ class ScreenImpl extends ScreenBase implements ViewTreeObserver_OnGlobalLayoutLi
     }
 
     private var _layoutListenerAdded:Bool = false;
-    public override function addComponent(component:Component) {
+    public override function addComponent(component:Component):Component {
         if (_layoutListenerAdded == false) {
             _layoutListenerAdded = true;
             MainActivity.contentView.getViewTreeObserver().addOnGlobalLayoutListener(this);
-            
         }
 
         var rootWidth:String = Toolkit.backendProperties.getProp("haxe.ui.android.root.width");
@@ -45,6 +44,7 @@ class ScreenImpl extends ScreenBase implements ViewTreeObserver_OnGlobalLayoutLi
             }
         }
         MainActivity.contentView.addView(component.view);
+        return component;
     }
 
     public function onGlobalLayout() {
@@ -68,7 +68,8 @@ class ScreenImpl extends ScreenBase implements ViewTreeObserver_OnGlobalLayoutLi
         c.resizeComponent(cx, cy);
     }
     
-    public override function removeComponent(component:Component) {
+    public override function removeComponent(component:Component):Component {
+        return component;
     }
 
     private override function handleSetComponentIndex(child:Component, index:Int) {
