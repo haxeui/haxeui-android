@@ -9,6 +9,7 @@ import android.view.View;
 
 class ScreenImpl extends ScreenBase implements ViewTreeObserver_OnGlobalLayoutListener {
     public function new() {
+        rootComponents = [];
     }
 
     private override function get_width():Float {
@@ -68,7 +69,7 @@ class ScreenImpl extends ScreenBase implements ViewTreeObserver_OnGlobalLayoutLi
         c.resizeComponent(cx, cy);
     }
     
-    public override function removeComponent(component:Component):Component {
+    public override function removeComponent(component:Component, dispose:Bool = true, invalidate:Bool = true):Component {
         return component;
     }
 

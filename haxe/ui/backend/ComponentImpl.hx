@@ -67,7 +67,7 @@ class ComponentImpl extends ComponentBase implements ViewTreeObserver_OnGlobalLa
         
         // TODO: just temp stuff to play
         /*
-        if (Std.is(view, Button)) {
+        if (Std.isOfType(view, Button)) {
             mapEvent(MouseEvent.MOUSE_DOWN, function(e) {
                 cast(this, Component).addClass(":down");
             });
@@ -84,7 +84,7 @@ class ComponentImpl extends ComponentBase implements ViewTreeObserver_OnGlobalLa
         
         //view.getViewTreeObserver().addOnGlobalLayoutListener(this);
         
-        if (Std.is(this, OptionBox)) {
+        if (Std.isOfType(this, OptionBox)) {
             view.setOnClickListener(new ClickHandler(function(v:View) {
                 cast(this, OptionBox).selected = cast(view, android.widget.RadioButton).isChecked();
             }));
@@ -96,7 +96,7 @@ class ComponentImpl extends ComponentBase implements ViewTreeObserver_OnGlobalLa
             return;
         }
 
-        if (Std.is(view.getLayoutParams(), RelativeLayout_LayoutParams)) {
+        if (Std.isOfType(view.getLayoutParams(), RelativeLayout_LayoutParams)) {
             var params:RelativeLayout_LayoutParams = cast(view.getLayoutParams(), RelativeLayout_LayoutParams);
             if (params == null) {
                 params = new RelativeLayout_LayoutParams(ViewGroup_LayoutParams.WRAP_CONTENT, ViewGroup_LayoutParams.WRAP_CONTENT);
@@ -114,7 +114,7 @@ class ComponentImpl extends ComponentBase implements ViewTreeObserver_OnGlobalLa
             return;
         }
         
-        if (Std.is(view.getLayoutParams(), RelativeLayout_LayoutParams)) {
+        if (Std.isOfType(view.getLayoutParams(), RelativeLayout_LayoutParams)) {
             var params:RelativeLayout_LayoutParams = cast(view.getLayoutParams(), RelativeLayout_LayoutParams);
             if (params == null) {
                 params = new RelativeLayout_LayoutParams(ViewGroup_LayoutParams.WRAP_CONTENT, ViewGroup_LayoutParams.WRAP_CONTENT);
@@ -143,7 +143,7 @@ class ComponentImpl extends ComponentBase implements ViewTreeObserver_OnGlobalLa
     }
 
     private override function handleAddComponent(child:Component):Component {
-        if (Std.is(view, TabPane)) {
+        if (Std.isOfType(view, TabPane)) {
             cast(view, TabPane).addTab(child.text, child.view);
         } else {
             var params = new RelativeLayout_LayoutParams(ViewGroup_LayoutParams.WRAP_CONTENT, ViewGroup_LayoutParams.WRAP_CONTENT);
@@ -168,18 +168,20 @@ class ComponentImpl extends ComponentBase implements ViewTreeObserver_OnGlobalLa
         if (style.backgroundColor != null) {
             var c:haxe.ui.util.Color = style.backgroundColor;
             if (view.getBackground() != null) {
-                view.getBackground().setColorFilter(Color.rgb(c.r, c.g, c.b), PorterDuff_Mode.MULTIPLY);
+                var background = view.getBackground();
+                background.setTint(Color.rgb(c.r, c.g, c.b));
+                background.setTintMode(PorterDuff_Mode.MULTIPLY);
             } else {
                 view.setBackgroundColor(Color.rgb(c.r, c.g, c.b));
             }
         }
         
-        if (style.color != null && Std.is(view, TextView)) {
+        if (style.color != null && Std.isOfType(view, TextView)) {
             var c:haxe.ui.util.Color = style.color;
             cast(view, TextView).setTextColor(Color.rgb(c.r, c.g, c.b));
         }
         
-        if (style.fontSize != null && Std.is(view, TextView)) {
+        if (style.fontSize != null && Std.isOfType(view, TextView)) {
             cast(view, TextView).setTextSize(style.fontSize);
         }
         

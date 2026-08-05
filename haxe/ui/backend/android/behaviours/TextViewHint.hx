@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 class TextViewHint extends DataBehaviour {
     public override function validateData() {
-        if (Std.is(_component.view, TextView)) {
+        if (Std.isOfType(_component.view, TextView)) {
             var textView:TextView = cast(_component.view, TextView);
             textView.setHint(_value.toString());
         }

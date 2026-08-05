@@ -5,7 +5,7 @@ import haxe.ui.behaviours.DataBehaviour;
 
 class WidgetIcon extends DataBehaviour {
     public override function validateData() {
-        if (Std.is(_component.view, TextView)) {
+        if (Std.isOfType(_component.view, TextView)) {
             ToolkitAssets.instance.getImage(_value, function(image) {
                 if (image == null || image.data == null) {
                     return;

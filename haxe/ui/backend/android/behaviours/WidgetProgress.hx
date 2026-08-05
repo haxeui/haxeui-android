@@ -11,10 +11,10 @@ class WidgetProgress extends Behaviour {
             return;
         }
         
-        if (Std.is(_component.view, ProgressBar)) {
+        if (Std.isOfType(_component.view, ProgressBar)) {
             var progressBar:ProgressBar = cast(_component.view, ProgressBar);
             progressBar.setProgress(value);
-        } else if (Std.is(_component.view, SeekBar)) {
+        } else if (Std.isOfType(_component.view, SeekBar)) {
             var seekBar:SeekBar = cast(_component.view, SeekBar);
             seekBar.setProgress(value);
         }
@@ -23,10 +23,10 @@ class WidgetProgress extends Behaviour {
     public override function get():Variant {
         var value:Variant = 0;
 
-        if (Std.is(_component.view, ProgressBar)) {
+        if (Std.isOfType(_component.view, ProgressBar)) {
             var progressBar:ProgressBar = cast(_component.view, ProgressBar);
             value = progressBar.getProgress();
-        } else if (Std.is(_component.view, SeekBar)) {
+        } else if (Std.isOfType(_component.view, SeekBar)) {
             var seekBar:SeekBar = cast(_component.view, SeekBar);
             value = seekBar.getProgress();
         }
